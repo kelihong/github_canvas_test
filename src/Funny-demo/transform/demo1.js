@@ -80,7 +80,7 @@
 
   var img = new Image();
   var maxHeight = 460;
-  img.src = './img/test.jpg';
+  img.src = './img/test23.png';
   img.onload = function() {
     var img_w = img.width,
       img_h = img.height;
@@ -98,11 +98,12 @@
     img.height = img_h;
 
     dots = [
-      { x: left, y: top },
-      { x: left + img_w, y: top },
-      { x: left + img_w, y: top + img_h },
-      { x: left, y: top + img_h },
-    ];
+      { x: 411.19, y: 109.95 }, // 右上 
+      { x: 6.25, y: 227.28 }, // 左上
+      { x: 111.19, y: 515.95 }, // 左下
+      { x: 600, y: 302.95 },  // 右下
+    ]; 
+    console.log(dots)
 
     //保存一份不变的拷贝
     dotscopy = [
@@ -178,9 +179,10 @@
    */
   function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+    
     var ndots = rectsplit(count, dots[0], dots[1], dots[2], dots[3]);
-
+    
+    console.log(ndots)
     ndots.forEach(function(d, i) {
       //获取平行四边形的四个点
       var dot1 = ndots[i];
